@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png">
+
+        <!-- All of the lines just below were verbatim pasted from fonts.google.com. Remember how this works re: font weights, etc. -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="./assets/css/style.css"> <!--always put this line after fonts because of how things load-->
+        <!-- "./" means "from right here". "../" means "go up a level". And, from a site:
+        Here is all you need to know about relative file paths:
+            Starting with “/” returns to the root directory and starts there
+            Starting with “../” moves one directory backwards and starts there
+            Starting with “../../” moves two directories backwards and starts there (and so on…)
+            To move forward, just start with the first subdirectory and keep moving forward -->
+
+        <title>Frontend Mentor | Pricing Component with Toggle Master</title>
+    </head>
+    <body>
+        <div id="app">
+            <header>
+                <h1>Our Pricing</h1> 
+                <ul>
+                    <li>Annually</li>
+                    <li>
+                        <label class="switch">
+                            <input type="checkbox" id="toggle" v-model="toggle">
+                            <span class="slider round"></span>
+                        </label>
+                    </li>
+                    <li>Monthly</li>
+                </ul>
+            </header>
+            <main>
+                <dl class="three-plans">
+                    <div class="card basic">
+                        <dt>Basic</dt>
+                        <dd><sup>&dollar;</sup><span id="price-basic">{{ priceForBasicPlan }}</span></dd> <!-- "<sup>" stands for "superscript" -->
+                        <hr>
+                        <dd>{{ plans[0].storage }}</dd>
+                        <hr>
+                        <dd>{{ plans[0].usersAllowed }}</dd>
+                        <hr>
+                        <dd>{{ plans[0].sendCapacity }}</dd>
+                        <hr>
+                        <dd><a href="#" target="_blank"><button type="button">LEARN MORE</button></a></dd>
+                    </div>
+                    <div class="card professional">
+                        <dt>Professional</dt>
+                        <dd><sup>&dollar;</sup><span id="price-professional">{{ priceForProfPlan }}</span></dd>
+                        <hr>
+                        <dd>{{ plans[1].storage }}</dd>
+                        <hr>
+                        <dd>{{ plans[1].usersAllowed }}</dd>
+                        <hr>
+                        <dd>{{ plans[1].sendCapacity }}</dd>
+                        <hr>
+                        <dd><a href="#" target="_blank"><button type="button">LEARN MORE</button></a></dd>
+                    </div>
+                    <div class="card master">
+                        <dt>Master</dt>
+                        <dd><sup>&dollar;</sup><span id="price-master">{{ priceForMasterPlan }}</span></dd>
+                        <hr>
+                        <dd>{{ plans[2].storage }}</dd>
+                        <hr>
+                        <dd>{{ plans[2].usersAllowed }}</dd>
+                        <hr>
+                        <dd>{{ plans[2].sendCapacity }}</dd>
+                        <hr>
+                        <dd><a href="#" target="_blank"><button type="button">LEARN MORE</button></a></dd>
+                    </div>
+                </dl>
+            </main>
+            <footer>
+                Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+                Coded by <a href="#">Ben</a>.
+            </footer>
+        </div>
+        <script src="https://unpkg.com/vue@next"></script>
+        <script src="./assets/js/app.js"></script>
+    </body>
+</html>

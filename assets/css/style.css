@@ -1,0 +1,499 @@
+/*
+"Be aware of the many CSS selectors available: https://www.w3schools.com/cssref/css_selectors.asp.
+That way, you can intuitively pick the right one for any context."
+*/
+
+/* For device widths: https://viewportsizer.com/devices/. */
+
+/* Remember "tab test" for accessibility. */
+
+/************************************************************
+********** For Mobile/Narrow Viewport **********
+************************************************************/
+
+/* Remember I worked with FEM's mobile demo at zoom 15. */
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/* The mobile viewport only has one background image. But the desktop viewport has two background images. So I'm using the background property shorthand so that all the values for each image can go on one line (here I've used several lines within this one line, just so it's easier to read) and therefore I'm able to include both images on just one element when I go to do the desktop viewport. */
+body {
+    font-family: Montserrat;
+    text-align: center;
+    padding: 0 25px 0 25px; /* Using this instead of "width: 90%" on the '.card' elements. Remember padding doesn't always "expand outwards"; most of the time it actually eats into the space of its child, as is the case here. */
+    background:
+        url("../../assets/img/bg-top.svg")
+            hsl(240, 78%, 98%)
+            no-repeat
+            scroll
+            228% -4.4% / 375px 658px;
+}
+
+/****************************************
+header
+****************************************/
+
+h1 {
+    color: hsl(233, 13%, 49%);
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    padding-top: 56px;
+    padding-bottom: 42px;
+}
+
+ul {
+    list-style-type: none;
+    font-size: 13px;
+    font-weight: 700;
+    color: hsl(234, 14%, 74%);
+    margin: 0;
+    padding: 0;
+    padding-bottom: 63px;
+    display: flex;
+    justify-content: center;
+}
+
+li:nth-of-type(1) { /* NOTE: As a rule with some exceptions, it's better to give each one of these <li> elements a class and reference them that way, instead of doing what I did here. */
+    padding-right: 20px;
+}
+
+li:nth-of-type(2) {
+    margin-top: -5px;
+}
+
+li:nth-of-type(3) {
+    padding-left: 20px;
+}
+
+/********** The toggle (pasted from https://www.w3schools.com/howto/howto_css_switch.asp and then tweaked) begins here **********/
+
+/* The switch (the box around the slider) */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 48px; /*was 60*/
+    height: 27.2px; /*was 34*/
+}
+
+/* Hides default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: hsl(237, 68%, 72%); /* Not sure this is the right color for here, but seems to be appropriate. It is a middleground between the two colors provided for the Linear Gradient: hsl(236, 72%, 79%) and hsl(237, 63%, 64%). */
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+/* I added */
+.slider.round:active {
+    opacity: 0.5;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20.8px; /*was 26*/
+    width: 20.8px; /*was 26*/
+    left: 3.2px; /*was 4*/
+    bottom: 3.2px; /*was 4*/
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(20.8px); /*was 26*/
+    -ms-transform: translateX(20.8px); /*was 26*/
+    transform: translateX(20.8px); /*was 26*/
+}
+
+/* Rounding the slider */
+.slider.round {
+    border-radius: 34px;
+}
+  
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/********** The toggle ends here **********/
+
+/****************************************
+main
+****************************************/
+
+dl {
+    margin: 0;
+}
+
+.card {
+    margin: 12px auto;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    font-weight: 700;
+    padding-right: 94px;
+    padding-left: 94px;
+    box-shadow:
+        /* top: */
+            0px -14px 11px -7px rgba(105, 111, 221, 0.04),
+        /* left and bottom: */
+            -3px 20px 35px 0px rgba(105, 111, 221, 0.01), 
+        /* right and bottom: */
+            3px 35px 35px 0px rgba(105, 111, 221, 0.01),
+        /* bottom (and a bit of right): */
+            3px 35px 20px 0px rgba(105, 111, 221, 0.1),
+        /* bottom: */
+            2px 10px 12px 0px rgba(105, 111, 221, 0.2);
+}
+
+.basic {
+    background-color: white;
+    color: hsl(233, 13%, 49%);
+}
+
+.professional {
+    background-color: hsl(237, 68%, 72%); /* Not sure this is the right color for here, but seems to be appropriate. It is a middleground between the two colors provided for the Linear Gradient: hsl(236, 72%, 79%) and hsl(237, 63%, 64%). */
+    color: hsl(240, 78%, 98%);
+}
+
+.master {
+    background-color: white;
+    color: hsl(233, 13%, 49%);
+}
+
+dt {
+    font-size: 15.5px;
+    padding-top: 31px;
+    padding-bottom: 13px;
+}
+
+.professional dt {
+    color: hsl(240, 78%, 98%);
+}
+
+dd {
+    font-size: 13px;
+    margin: 0;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+dd:nth-of-type(1) {
+    font-size: 63px;
+    font-weight: 700;
+    padding-bottom: 13px;
+    display: flex;
+    justify-content: center;
+}
+
+dd:nth-of-type(5) {  
+    padding-top: 19px;
+    padding-bottom: 27px;
+}
+
+.basic dd:nth-of-type(1) {
+    color: hsl(232, 13%, 33%);
+}
+
+.professional dd:nth-of-type(1) {
+    color: white;
+}
+
+.master dd:nth-of-type(1) {
+    color: hsl(232, 13%, 33%);
+}
+
+sup {
+    font-size: 35px;
+    align-self: center;
+    padding-right: 4px;
+}
+
+hr {
+    height: 1px;
+    border-width: 0;
+    background-color: rgba(187, 187, 187, .2); /* I just chose this color; it was not provided. */
+}
+
+button { /* Why is my button font not as spread out as the FEM demo's? The solution is to add "letter-spacing: ?px;" just below. But I'm not doing it now because then I'd have to resize a few things and it's not a priority now. */
+    cursor: pointer;
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 13px 86px 13px 86px;
+    border-width: 0;
+    border-radius: 7px;
+}
+
+.basic button {
+    background-image: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    color: hsl(240, 78%, 98%);
+}
+
+.basic button:active {
+    background-image: none;
+    background-color: white;
+    color: hsl(237, 63%, 64%); /* Not sure this is the right color for here, but seems to be appropriate. It is the darker of the two colors provided for the Linear Gradient: hsl(236, 72%, 79%) and hsl(237, 63%, 64%). */
+    outline: none;
+    border: 1px solid hsl(233, 13%, 49%);
+    padding: 12px 85px 12px 85px; /* Why is this here? It's one less pixel all around (than is set for the button) to compensate for the addition (here) of the border making it bigger. Why not just make the button have a 1px border the same color as the button? Because I can't because the button color is a linear-gradient and I can't make a border a linear-gradient. */
+}
+
+.basic a:visited button {
+    outline: none;
+}
+
+.professional button {
+    background-color: white;
+    color: hsl(237, 63%, 64%); /* Not sure this is the right color for here, but seems to be appropriate. It is the darker of the two colors provided for the Linear Gradient: hsl(236, 72%, 79%) and hsl(237, 63%, 64%). */
+}
+
+.professional button:active {
+    background-color: hsl(237, 68%, 72%); /* Not sure this is the right color for here, but seems to be appropriate. It is a middleground between the two colors provided for the Linear Gradient: hsl(236, 72%, 79%) and hsl(237, 63%, 64%). It's what I used for ".professional". */
+    color: hsl(240, 78%, 98%);
+    outline: none;
+    border: 1px solid hsl(237, 46%, 86%); /* Not sure this is the right color for here, but seems to be appropriate. It is a middleground between the two lightest "Grayish Blue" colors provided. */
+    padding: 12px 85px 12px 85px;
+}
+
+.professional a:visited button { /* Ideally this wouldn't show the outline or border (not sure which it is in this case) that it does, but it's not a priority now to fix it. */
+    outline: none;
+}
+
+.master button {
+    background-image: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    color: hsl(240, 78%, 98%);
+}
+
+.master button:active {
+    background-image: none;
+    background-color: white;
+    color: hsl(237, 63%, 64%); /* Not sure this is the right color for here, but seems to be appropriate. It is the darker of the two colors provided for the Linear Gradient: hsl(236, 72%, 79%) and hsl(237, 63%, 64%). */
+    outline: none;
+    border: 1px solid hsl(233, 13%, 49%);
+    padding: 12px 85px 12px 85px;
+}
+
+.master a:visited button {
+    outline: none;
+}
+
+/****************************************
+footer
+****************************************/
+
+footer {
+    text-align: center;
+    font-size: 10px;
+}
+
+footer a {
+    color: hsl(228, 45%, 44%); /*hsl(hue, saturation, lightness)*/
+}
+
+
+/************************************************************
+********** For Desktop/Wide Viewport **********
+************************************************************/
+
+@media screen and (min-width: 900px) { /* starting at width of 900px, the code below (which is only for CHANGES to the above code) will take effect. */
+
+    body {
+        background:
+            url("../../assets/img/bg-top.svg")
+                no-repeat
+                scroll
+                100% 0% / 281.25px 493.5px,
+            url("../../assets/img/bg-bottom.svg")
+                no-repeat
+                scroll
+                0% 100% / 264.75px 228px;
+        background-color: hsl(240, 78%, 98%);
+    }
+
+    h1 {
+        font-size: 24px; 
+        font-weight: 700;
+        padding-top: 48px; 
+        padding-bottom: 36px; 
+    }
+
+    ul {
+        font-size: 11px; 
+        padding-bottom: 37px; 
+    }
+
+    li:nth-of-type(1) {
+        padding-right: 17.14px; 
+    }
+    
+    li:nth-of-type(2) {
+        margin-top: -4.29px; 
+    }
+    
+    li:nth-of-type(3) {
+        padding-left: 17.14px;
+    }
+
+    /********** The toggle begins here **********/
+
+    /* The switch (the box around the slider) */
+    .switch {
+        width: 42px; /*was 60 on w3schools...The calculation (multiplying by .685) said it should be 41.1, but 42 works better*/
+        height: 24px; /*was 34 on w3schools...The calculation (multiplying by .685) said it should be 23.29, but 24 works better*/
+    }
+
+    .slider:before {
+        height: 17.81px; /*was 26 on w3schools*/
+        width: 17.81px; /*was 26 on w3schools*/
+        left: 2.76px; /*was 4 on w3schools...The calculation (multiplying by .685) said it should be 2.74, but 2.76 works better*/
+        bottom: 2.76px; /*was 4 on w3schools...The calculation (multiplying by .685) said it should be 2.74, but 2.76 works better*/
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(17.81px); /*was 26 on w3schools*/
+        -ms-transform: translateX(17.81px); /*was 26 on w3schools*/
+        transform: translateX(17.81px); /*was 26 on w3schools*/
+    }
+
+    /* Rounding the slider */
+    .slider.round {
+        border-radius: 24px; /*was 34 on w3schools...The calculation (multiplying by .685) said it should be 23.29, but 24 works better*/
+    }
+
+    /********** The toggle ends here **********/
+
+    dl {
+        display: flex;
+        justify-content: center;
+    }
+
+    .card {
+        border-radius: 10px;
+        font-weight: 700;
+        margin-bottom: 34px;
+        margin-left: 0;
+        margin-right: 0;
+        padding-right: 25px; 
+        padding-left: 25px;
+    }
+
+    .basic {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        align-self: center; 
+    }
+
+    .professional {
+        z-index: 1;
+        align-self: center; 
+        padding-top: 21px;
+        padding-bottom: 21px;
+    }
+
+    .master {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        align-self: center;
+    }
+
+    dt {
+        font-size: 13.3px;
+        padding-top: 26.6px;
+        padding-bottom: 11.1px;
+    }
+
+    dd {
+        font-size: 11.1px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+
+    dd:nth-of-type(1) {
+        font-size: 54px;
+        padding-bottom: 11.1px;
+    }
+    
+    dd:nth-of-type(5) {  
+        padding-top: 16.3px;
+        padding-bottom: 23.1px;
+    }
+
+    sup {
+        font-size: 30px;
+        padding-right: 7px;
+    }
+
+    button {
+        font-size: 9px;
+        padding: 11.1px 73.7px 11.1px 73.7px;
+    }
+
+    .basic button:active {
+        padding: 10.1px 72.7px 10.1px 72.7px;
+    }
+
+    .professional button:active {
+        padding: 10.1px 72.7px 10.1px 72.7px;
+    }
+
+    .master button:active {
+        padding: 10.1px 72.7px 10.1px 72.7px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* KEEP THIS AS A REFERENCE:
+
+parent/container/row {
+display: flex;    mandatory 
+flex-direction: ;    row (default) | row-reverse | column | column-reverse 
+justify-content: ;    flex-start (default) | flex-end | center | space-between | space-around | space-evenly 
+align-items: ;    flex-start | flex-end | center | (baseline) | stretch (default) 
+flex-wrap: ;    nowrap (default) | wrap | wrap-reverse 
+align-content: ;    flex-start | flex-end | center | space-between | space-around | stretch (default)
+
+note on 'align-content' (paraphrased from flexboxfroggy.com): 'align-content' determines the spacing between lines, while 'align-items' determines how the items as a whole are aligned within the container; when there is only one line, 'align-content' has no effect
+
+flex-flow: ;    this is shorthand for 'flex-direction: ;' and 'flex-wrap: ;' (e.g., 'flex-flow: column wrap;')
+}
+
+child/item/cell {
+align-self: ;    flex-start | flex-end | center | (baseline) | stretch (default)
+flex-grow: ;    0 is default (Jen Kramer: This is very hard to understand)
+flex-shrink: ;    1 is default (Jen Kramer: This is very hard to understand)
+flex-basis: ;    auto is default (Jen Kramer: This is basically the 'width' property--never use with Flexbox--but with some flexibility you can't control)
+order: ;    0 is default
+
+flex: [flex-grow number, flex-shrink number, flex-basis number];    this is a way (instead of using % outside of Flexbox) to set relative sizes of elements. (This is how I THOUGHT 'flex-grow' worked.) An example is 'flex: 1 1 0;' (the shorthand for which is the oft-used 'flex: 1;').
+
+margin-top: auto;    this puts the element at the bottom.
+}
+
+*/
