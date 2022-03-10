@@ -160,17 +160,17 @@ dl {
             2px 10px 12px 0px rgba(105, 111, 221, 0.2);
 }
 
-.basic {
+#basic {
     background-color: white;
     color: hsl(233, 13%, 49%);
 }
 
-.professional {
+#professional {
     background-color: hsl(237, 68%, 72%); /* Not sure this is the right color for here, but seems to be appropriate. It is a middleground between the two colors provided for the Linear Gradient: hsl(236, 72%, 79%) and hsl(237, 63%, 64%). */
     color: hsl(240, 78%, 98%);
 }
 
-.master {
+#master {
     background-color: white;
     color: hsl(233, 13%, 49%);
 }
@@ -181,7 +181,11 @@ dt {
     padding-bottom: 13px;
 }
 
-.professional dt {
+dt:first-letter {
+    text-transform: capitalize;
+}
+
+#professional dt {
     color: hsl(240, 78%, 98%);
 }
 
@@ -205,15 +209,15 @@ dd:nth-of-type(5) {
     padding-bottom: 27px;
 }
 
-.basic dd:nth-of-type(1) {
+#basic dd:nth-of-type(1) {
     color: hsl(232, 13%, 33%);
 }
 
-.professional dd:nth-of-type(1) {
+#professional dd:nth-of-type(1) {
     color: white;
 }
 
-.master dd:nth-of-type(1) {
+#master dd:nth-of-type(1) {
     color: hsl(232, 13%, 33%);
 }
 
@@ -238,12 +242,12 @@ button { /* Why is my button font not as spread out as the FEM demo's? The solut
     border-radius: 7px;
 }
 
-.basic button {
+#basic button {
     background-image: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
     color: hsl(240, 78%, 98%);
 }
 
-.basic button:active {
+#basic button:active {
     background-image: none;
     background-color: white;
     color: hsl(237, 63%, 64%); /* Not sure this is the right color for here, but seems to be appropriate. It is the darker of the two colors provided for the Linear Gradient: hsl(236, 72%, 79%) and hsl(237, 63%, 64%). */
@@ -252,33 +256,33 @@ button { /* Why is my button font not as spread out as the FEM demo's? The solut
     padding: 12px 85px 12px 85px; /* Why is this here? It's one less pixel all around (than is set for the button) to compensate for the addition (here) of the border making it bigger. Why not just make the button have a 1px border the same color as the button? Because I can't because the button color is a linear-gradient and I can't make a border a linear-gradient. */
 }
 
-.basic a:visited button {
+#basic a:visited button {
     outline: none;
 }
 
-.professional button {
+#professional button {
     background-color: white;
     color: hsl(237, 63%, 64%); /* Not sure this is the right color for here, but seems to be appropriate. It is the darker of the two colors provided for the Linear Gradient: hsl(236, 72%, 79%) and hsl(237, 63%, 64%). */
 }
 
-.professional button:active {
-    background-color: hsl(237, 68%, 72%); /* Not sure this is the right color for here, but seems to be appropriate. It is a middleground between the two colors provided for the Linear Gradient: hsl(236, 72%, 79%) and hsl(237, 63%, 64%). It's what I used for ".professional". */
+#professional button:active {
+    background-color: hsl(237, 68%, 72%); /* Not sure this is the right color for here, but seems to be appropriate. It is a middleground between the two colors provided for the Linear Gradient: hsl(236, 72%, 79%) and hsl(237, 63%, 64%). It's what I used for "#professional". */
     color: hsl(240, 78%, 98%);
     outline: none;
     border: 1px solid hsl(237, 46%, 86%); /* Not sure this is the right color for here, but seems to be appropriate. It is a middleground between the two lightest "Grayish Blue" colors provided. */
     padding: 12px 85px 12px 85px;
 }
 
-.professional a:visited button { /* Ideally this wouldn't show the outline or border (not sure which it is in this case) that it does, but it's not a priority now to fix it. */
+#professional a:visited button { /* Ideally this wouldn't show the outline or border (not sure which it is in this case) that it does, but it's not a priority now to fix it. */
     outline: none;
 }
 
-.master button {
+#master button {
     background-image: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
     color: hsl(240, 78%, 98%);
 }
 
-.master button:active {
+#master button:active {
     background-image: none;
     background-color: white;
     color: hsl(237, 63%, 64%); /* Not sure this is the right color for here, but seems to be appropriate. It is the darker of the two colors provided for the Linear Gradient: hsl(236, 72%, 79%) and hsl(237, 63%, 64%). */
@@ -287,7 +291,7 @@ button { /* Why is my button font not as spread out as the FEM demo's? The solut
     padding: 12px 85px 12px 85px;
 }
 
-.master a:visited button {
+#master a:visited button {
     outline: none;
 }
 
@@ -391,20 +395,20 @@ footer a {
         padding-left: 25px;
     }
 
-    .basic {
+    #basic {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         align-self: center; 
     }
 
-    .professional {
+    #professional {
         z-index: 1;
         align-self: center; 
         padding-top: 21px;
         padding-bottom: 21px;
     }
 
-    .master {
+    #master {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
         align-self: center;
@@ -442,15 +446,15 @@ footer a {
         padding: 11.1px 73.7px 11.1px 73.7px;
     }
 
-    .basic button:active {
+    #basic button:active {
         padding: 10.1px 72.7px 10.1px 72.7px;
     }
 
-    .professional button:active {
+    #professional button:active {
         padding: 10.1px 72.7px 10.1px 72.7px;
     }
 
-    .master button:active {
+    #master button:active {
         padding: 10.1px 72.7px 10.1px 72.7px;
     }
 }

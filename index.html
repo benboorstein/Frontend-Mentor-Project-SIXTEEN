@@ -38,12 +38,12 @@
             </header>
             <main>
                 <dl class="three-plans">
-                    <div class="card basic" v-for="plan in plans">
+                    <div class="card" :id="plan.planType" v-for="plan in plans" :key="plan.planType">
                         <dt>{{ plan.planType }}</dt>
                         <dd>
                             <sup>&dollar;</sup> <!-- "<sup>" stands for "superscript" -->
-                            <span id="price-basic" v-if="!toggle">{{ plan.price.annually }}</span>
-                            <span id="price-basic" v-else>{{ plan.price.monthly }}</span>
+                            <span v-if="!toggle">{{ plan.price.annually }}</span>
+                            <span v-else>{{ plan.price.monthly }}</span>
                         </dd>
                         <hr>
                         <dd>{{ plan.storage }}</dd>
@@ -58,32 +58,6 @@
                             </a>
                         </dd>
                     </div>
-
-                    <!-- <div class="card professional">
-                        <dt>Professional</dt>
-                        <dd><sup>&dollar;</sup><span id="price-professional">{{ priceForProfPlan }}</span></dd>
-                        <hr>
-                        <dd>{{ plans[1].storage }}</dd>
-                        <hr>
-                        <dd>{{ plans[1].usersAllowed }}</dd>
-                        <hr>
-                        <dd>{{ plans[1].sendCapacity }}</dd>
-                        <hr>
-                        <dd><a href="#" target="_blank"><button type="button">LEARN MORE</button></a></dd>
-                    </div>
-                    <div class="card master">
-                        <dt>Master</dt>
-                        <dd><sup>&dollar;</sup><span id="price-master">{{ priceForMasterPlan }}</span></dd>
-                        <hr>
-                        <dd>{{ plans[2].storage }}</dd>
-                        <hr>
-                        <dd>{{ plans[2].usersAllowed }}</dd>
-                        <hr>
-                        <dd>{{ plans[2].sendCapacity }}</dd>
-                        <hr>
-                        <dd><a href="#" target="_blank"><button type="button">LEARN MORE</button></a></dd>
-                    </div> -->
-
                 </dl>
             </main>
             <footer>
