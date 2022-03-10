@@ -35,24 +35,7 @@ const App = {
             ],
             toggle: false
         }
-    },
-    computed: {
-        priceForBasicPlan() { return this.toggle ? this.plans[0].price.monthly : this.plans[0].price.annually },
-        priceForProfPlan() { return this.toggle ? this.plans[1].price.monthly : this.plans[1].price.annually },
-        priceForMasterPlan() { return this.toggle ? this.plans[2].price.monthly : this.plans[2].price.annually }
     }
 }
 
 Vue.createApp(App).mount('#app')
-
-
-
-/* Robert:
-
-- Imagine you're working with an array of plans
-- Each one has information related to each plan's uniqueness: price, storage, users, send capacity
-- Your template renders the same elements and text, but using this array instead
-
-How might you adjust your Vue code - JS and HTML - to account for this setup, including the new array of plans?
-
-*/

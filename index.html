@@ -38,19 +38,28 @@
             </header>
             <main>
                 <dl class="three-plans">
-                    <div class="card basic">
-                        <dt>Basic</dt>
-                        <dd><sup>&dollar;</sup><span id="price-basic">{{ priceForBasicPlan }}</span></dd> <!-- "<sup>" stands for "superscript" -->
+                    <div class="card basic" v-for="plan in plans">
+                        <dt>{{ plan.planType }}</dt>
+                        <dd>
+                            <sup>&dollar;</sup> <!-- "<sup>" stands for "superscript" -->
+                            <span id="price-basic" v-if="!toggle">{{ plan.price.annually }}</span>
+                            <span id="price-basic" v-else>{{ plan.price.monthly }}</span>
+                        </dd>
                         <hr>
-                        <dd>{{ plans[0].storage }}</dd>
+                        <dd>{{ plan.storage }}</dd>
                         <hr>
-                        <dd>{{ plans[0].usersAllowed }}</dd>
+                        <dd>{{ plan.usersAllowed }}</dd>
                         <hr>
-                        <dd>{{ plans[0].sendCapacity }}</dd>
+                        <dd>{{ plan.sendCapacity }}</dd>
                         <hr>
-                        <dd><a href="#" target="_blank"><button type="button">LEARN MORE</button></a></dd>
+                        <dd>
+                            <a href="#" target="_blank">
+                                <button type="button">LEARN MORE</button>
+                            </a>
+                        </dd>
                     </div>
-                    <div class="card professional">
+
+                    <!-- <div class="card professional">
                         <dt>Professional</dt>
                         <dd><sup>&dollar;</sup><span id="price-professional">{{ priceForProfPlan }}</span></dd>
                         <hr>
@@ -73,12 +82,13 @@
                         <dd>{{ plans[2].sendCapacity }}</dd>
                         <hr>
                         <dd><a href="#" target="_blank"><button type="button">LEARN MORE</button></a></dd>
-                    </div>
+                    </div> -->
+
                 </dl>
             </main>
             <footer>
                 Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-                Coded by <a href="#">Ben</a>.
+                Coded by <a href="#">Ben Boorstein</a>.
             </footer>
         </div>
         <script src="https://unpkg.com/vue@next"></script>
